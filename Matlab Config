@@ -1,0 +1,38 @@
+If you do:
+
+locate startup.m
+
+You should find the Matlab startup file.
+
+Mine was located: /Applications/MATLAB_R2015b.app/toolbox/matlab/iofun/+matlab/+internal/+storage/startup.m
+
+
+In the file you have to tell matlab where it will find all of the files we are going to use for our project.
+
+Add the line:
+
+addpath(genpath('/Users/Michael/Web/SDDProject'))
+
+Where '/Users/Michael/Web/SDDProject' is the path you are using.
+
+So your Matlab startup.m file should look like:
+
+
+
+
+
+
+function startup
+% STARTUP Startup hook for storage integration.
+
+% Copyright 2014 The MathWorks, Inc.
+
+% File intentionally left blank.
+
+% This is intended to be overridden at runtime with function containing some
+% real implementation. This empty implementation allows matlabrc to call us
+% safely without needing try/catch or existence checks.
+
+addpath(genpath('/Users/Michael/Web/SDDProject'))
+
+end
