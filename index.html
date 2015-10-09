@@ -1,0 +1,79 @@
+<html>
+<head>
+
+<link rel=stylesheet type="text/css" href="StyleSheet.css">
+
+<title>Untitled</title>
+<style>
+#wrapper {
+    width: 1550px;
+    border: 1px solid black;
+    overflow: auto; /* so the size of the wrapper is alway the size of the longest content */
+}
+#first {
+    float: left;
+    width: 300px;
+	height:458px;
+    border: 1px solid black;
+}
+#second {
+    border: 1px solid black;
+	height: 458px;
+    margin: 0 0 0 350px; 
+}
+a {
+    width:400px;
+    display:inline-block;
+    text-align:right;
+}
+
+body {
+//    background-image: url(City.jpeg);
+
+}
+
+h1 {
+    color: gray;
+}
+
+.right {
+    text-align: right;
+}
+
+</style>
+</head>
+
+<body>
+<h1>Project Manager</h1>
+
+<br><br>
+
+<form enctype="multipart/form-data" method="POST" action="upload.php">
+    <input type="file" value="ChooseFile" name="ChooseFile">
+    <button type="button big-btn" name="Upload" style="width: 100px; height: 40px;">Upload</button>
+
+    <div id="wrapper">
+        <div id="first"></div>
+        <div id="second"></div>
+    	
+        <p>
+            <button type="button big-btn" style="width: 100px; height: 50px;">Calculate</button>
+        </p>
+    </div>
+</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
