@@ -1,0 +1,61 @@
+<html>
+<head>
+
+<link rel=stylesheet type="text/css" href="StyleSheet.css">
+
+<title>Untitled</title>
+<style>
+#wrapper {
+    width: 1024px;
+    border: 1px solid black;
+    overflow: auto; /* so the size of the wrapper is alway the size of the longes
+    float: left;t content */
+}
+#first {
+    width: 300px;
+	height:350px;
+    border: 1px solid black;
+}
+#second {
+    border: 1px solid black;
+	height: 348px;
+    margin: 0 0 0 350px; 
+}
+a {
+    width:200px;
+    display:inline-block;
+    text-align:right;
+}
+body {
+    background-image: url("http://freeppt.net/background/Sales_Presentation_Template.jpg");
+}
+h1 {
+    color: gray;
+}
+.right {
+    text-align: right;
+}
+</style>
+</head>
+
+<body><br><br>
+<h1><font size=7 >Project Manager</font></h1>
+
+<a href="file:///C:/Users/Cullen/Documents/Software%20Design/project/Help.html">Help</a>
+
+<br>
+
+<form enctype="multipart/form-data" method="POST" action="upload.php">
+    <input type="file" value="ChooseFile" name="ChooseFile">
+    <button type="button big-btn" name="Upload" style="width: 100px; height: 40px;">Upload</button>
+
+    <div id="wrapper">
+        <div id="first">
+        <div id="second"></div></div>
+    	
+            <button type="button big-btn" style="width: 100px; height: 50px;">Calculate</button>
+        
+    </div>
+</form>
+</body>
+</html>
