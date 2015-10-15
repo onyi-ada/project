@@ -1,0 +1,55 @@
+<html>
+<head> <!-- MESSAGE FOR MICHAEL: you canskip down to where the form starts. You will see a comment before it -->
+<title>Untitled</title>
+
+<style>
+div {
+    background-color: light blue;
+    width: 300px;
+	height: 400px;
+    padding: 25px;
+    border: 40px  black;
+    margin: auto;
+}
+
+body {
+    background-image: url("http://i49.tinypic.com/23mn639.jpg");
+}
+
+</style>
+</head>
+
+<body>
+<h1><font color="gray">Project Manager</h1></font>
+<font color="gray" style = "font-size: 16pt">
+<a href = "file:///C:/Users/Cullen/Documents/Software%20Design/project/projectManagement.html"
+>return to login</a></font>
+
+<link rel=stylesheet type="text/css" href="StyleSheet.css">
+
+<center><p><font color= gray size=6><u>Account Information</u>
+</font><br><br><br></p>
+
+<!-- This is the part of the code where my form starts that connects my html to php -->
+
+<form action = "Create_account.php " method ="POST" name = "contact_form">
+
+<font color= gray size=5>  
+*Enter Username:<input style="height:20px; font-size: 12pt; width:200px" type="text" name="usrName" required>
+<br><br>
+<font color= gray size=5>  
+Enter Email:<input style="height:20px; font-size: 12pt; width:200px" type="text" name="email"> 
+<br><br>
+<font size=5>*Enter Password: </font> <input style="height:20px; font-size: 12pt; width:200px" type="password" name="password" required>
+<br><br>
+<font size=5> *Re-enter Password: </font> <input style="height:20px; font-size: 12pt; width:200px" type="password" name="password2" required>
+<br><br>
+
+<button type="button big-btn" style="width: 125px; height: 30px;">Create account</button>
+
+
+</form></center>
+
+
+</body>
+</html>
