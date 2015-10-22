@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+$imgsrc = $_SESSION['gant'];
+
 //Function to recursively remove a directory
 function rrmdir($dir)
 {
@@ -42,6 +44,11 @@ foreach($items as $item)
 print <<<EOT
 <head>
 <title>Upload Page</title>
+<style>
+	img {
+		width: 600px;
+	}
+</style>
 </head>
 <body>
 	<h1>Upload an Excel file</h1>
@@ -52,6 +59,10 @@ print <<<EOT
 		<br><br>
 
 		$error
+
+		<br><br>
+
+		<img src=$imgsrc>
 	</form>
 </body>
 
