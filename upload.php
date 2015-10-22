@@ -47,7 +47,10 @@ if(isset($_POST['Upload']))
 			move_uploaded_file($_FILES['ChooseFile']['tmp_name'], $curr_dir . '/' . $file);
 
 			//Runs Matlab
-			exec("/Applications/MATLAB_R2015b.app/bin/./matlab -c license.lic.txt -r 'DominantConstraints Wiest_RawData.xlsx; exit;'");
+			$exec_string = "/Applications/MATLAB_R2015b.app/bin/./matlab -nosplash -c /Applications/MATLAB_R2015b.app/license.lic.txt -r 'DominantConstraints" . " $curr_dir/$file" . " $curr_dir" . "; exit;'"; 
+			exec($exec_string);
+			
+			$_SESSION['gant'] = $curr_dir . "/gant.png";
 
 		} else
 		{
