@@ -36,3 +36,44 @@ function startup
 addpath(genpath('/Users/Michael/Web/SDDProject'))
 
 end
+
+
+**********Changes that need to be made in matlab in order for it to accept a directory as a parameter and
+**********Save the chart in a specific directory
+
+At the beginning of DominantConstraints add
+{
+  function DominantConstraints(fname, dir)
+  global A_sorted A SA SinkA Duration ScheduleTable SlackTime CP
+  disp(' ');
+  disp('---------- Determining Dominant Precedence Constraints ----------');
+  
+  %%GET PROJECT INFORMATION
+  %filename = input('Specify name of file to import data. ', 's');
+  filename = fname;
+  directory = dir;
+}
+
+at the end of DominantConstraints edit
+{
+  CreateGanttChart(ScheduleTable, CP, directory);
+}
+
+at the beginning of CreateGanttChart change
+{
+  function CreateGanttChart(ScheduleTable, CP, dir)
+  directory = dir;
+}
+
+at the end of CreateGanttChart add
+{
+  filepathname = strcat(directory,'/gant.png');
+  saveas(figure1,filepathname);
+}
+
+
+
+
+
+
+
