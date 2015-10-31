@@ -1,0 +1,60 @@
+<html>
+<head> 
+<title>Untitled</title>
+
+<style>
+div {
+    background-color: light blue;
+    width: 300px;
+	height: 400px;
+    padding: 25px;
+    border: 40px  black;
+    margin: auto;
+}
+
+body {
+    background-image: url("http://i49.tinypic.com/23mn639.jpg");
+}
+
+</style>
+</head>
+
+<body>
+
+<h1><font color="gray">Project Manager</h1></font>
+<font color="gray" style = "font-size: 16pt">
+
+<!-- Creates a link so that user can go back to the login page -->
+<a href = "http://localhost/project/Login.html"
+>return to login</a></font>
+
+
+
+<center><p><font color= gray size=6><u>Account Information</u>
+</font><br><br><br></p>
+
+<!-- Creates a form that directs these variables to create_account.php if the butto is pressed -->
+
+<form action = "Create_account.php " method ="POST" name = "contact_form">
+
+
+<!-- Field and Button formatting -->
+<font color= gray size=5>  
+*Enter Username:<input style="height:20px; font-size: 12pt; width:200px" type="text" name="usrName" required>
+<br><br>
+<font color= gray size=5>  
+Enter Email:<input style="height:20px; font-size: 12pt; width:200px" type="text" name="email"> 
+<br><br>
+<font size=5>*Enter Password: </font> <input style="height:20px; font-size: 12pt; width:200px" type="password" name="password" required>
+<br><br>
+<font size=5> *Re-enter Password: </font> <input style="height:20px; font-size: 12pt; width:200px" type="password" name="password2" required>
+<br><br>
+
+<button type="button big-btn" style="width: 125px; height: 30px;">Create account</button>
+
+
+</form></center>
+
+
+</body>
+</html>
