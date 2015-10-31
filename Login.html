@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>Untitled</title>
+
+<style>
+div {
+    background-color: light blue;
+    width: 300px;
+	height: 400px;
+    padding: 25px;
+    border: 40px  black;
+    margin: auto;
+}
+
+body {
+    background-image: url("http://i49.tinypic.com/23mn639.jpg");
+}
+
+</style>
+</head>
+
+<body>
+<h1><font color="gray">Project Manager</h1></font>
+<font color="gray" style = "font-size: 16pt">
+
+<!-- Creates a link so that user can creat an account -->
+<a href = "http://localhost/project/Create_account.html"
+>Create an account</a></font>
+
+
+<!-- Form that directs these variables to Login.php if the button is clicked -->
+<form action = "Login.php" method = "POST">
+
+
+<!-- Field and Button formatting -->
+<div><p><font color= gray size=6><u>User Login</u>
+</font><br><br><br></p>
+<font color= gray size=6>Username:<br>
+<input style="height:30px; font-size: 14pt; width:200px" type="text" name="usrName" required>
+<br><br>
+<font size=6>Password: </font><br>
+<input style="height:30px; font-size: 14pt; width:200px" type="password" name="password" required>
+<br><br>
+
+<button type="button big-btn" name = "Login" style="width: 100px; height: 30px;">Login</button>
+
+
+</div></form>
+
+
+</body>
+</html>
