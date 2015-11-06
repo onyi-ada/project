@@ -62,8 +62,3 @@ if(isset($_POST['Upload']))
 	//Sends the browser back to the upload page
 	header('Location:index.php?success=true');
 }
-
-//Print the file name for testing purposes
-//echo basename($_FILES['ChooseFile']['name']);
-
-?>
