@@ -74,7 +74,7 @@ if(isset($_POST['Login']))
 		
 		if ($p1 == trim($matches[3])){
 			
-			header('Location: http://localhost/project/index.php');
+			header('Location: http://localhost/project/MainPage.html');
 		}
 		
 		
