@@ -61,7 +61,7 @@ $p2 = crypt($password2, "salt");
 
 if($p1 == $p2){
 	//create a link to connect mysql
-	$link = mysqli_connect("localhost","root","put your password");
+	$link = mysqli_connect("localhost","root","CulL1g@n5", "project");
 	
 	//make sure mysql actually connected without errors
 	if(mysqli_connect_errno()){
@@ -74,9 +74,12 @@ if($p1 == $p2){
 	$email = mysqli_escape_string($link, $email);
 	$password = mysqli_escape_string($link, $p1);
 	
-	//mysqli_query("INSERT INTO 'users'  ('username', 'email', 'password') VALUES ('$username', '$email', '$password')");
-	$link -> query("INSERT INTO 'users'  ('username', 'email', 'password') VALUES ('$username', '$email', '$password')");
+	$sql = "INSERT INTO 'users'  ('username', 'email', 'password') VALUES ('$username1', '$email1', '$password1')";
+	$result = mysqli_query($link, $sql);
+	//$link -> query("INSERT INTO 'users'  ('username', 'email', 'password') VALUES ('$username', '$email', '$password')");
 	
+	if($result)
+		echo 'data inserted sucessfully';
 }
 
 
