@@ -58,10 +58,25 @@ $password2 = $_POST['password2'];
 //Added salt so they will be the same
 $p1 = crypt($password, "salt");
 $p2 = crypt($password2, "salt");
+
+if($p1 == $p2){
+	
+	$username = mysql_escape_string($username);
+	$email = mysql_escape_string($email);
+	$password = mysql_escape_string($p1);
+	
+	mysql_query("INSERT INTO 'users'  ('username', 'email', 'password') VALUES ('$username', '$email', '$password')");
+	
+}
+
+
+
+
+/*
 if($p1 == $p2)
 {
 	//echo "Your passwords are equivalent";
-	echo "<p align=center><font size=5>(Your passwords are equivalent)</font> </p> ";
+	echo "<p align=center><font size=5>(Your passwords are equivalent.)</font> </p> ";
 	echo "\n\n\n";
 	echo "<p align=center><font size=5>(Go back to login and use your new username and password to access the site)</font> </p> ";
 	
@@ -69,10 +84,10 @@ if($p1 == $p2)
 	file_put_contents("database.txt", $username . ":" . $p1 . "\r\n", FILE_APPEND);
 }
 else{
-	echo "<p align=center><font size=5>(Your passwords are not equivalent)</font> </p> ";
+	echo "<p align=center><font size=5>(Your passwords are not equivalent.)</font> </p> ";
 }
 
-
+*/
 ?>
 
 </body>
