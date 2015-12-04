@@ -1,0 +1,12 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.hbox {
+	-fx-background-color:#C6D0D6;
+	-fx-border-style:dashed;
+	-fx-border-width:2px;
+}
+.root{
+	-fx-background-color:#F0F0F0;
+}
+.button{
+	-fx-background-color:#E8E8E8;
+}
