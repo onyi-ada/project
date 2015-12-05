@@ -1,4 +1,3 @@
-
 <html>
 <head>
 
@@ -6,39 +5,23 @@
 
 <title>Untitled</title>
 <style>
-#wrapper {
+
+div {
+    background-color: light blue;
     width: 300px;
-    border: 1px solid black;
-    overflow: auto; /* so the size of the wrapper is alway the size of the longes
-    float: left;t content */
+	height: 400px;
+    padding: 25px;
+    border: 40px  black;
+    margin: auto;
 }
-#first {
-    width: 298px;
-	height:200px;
-    border: 1px solid black;
-}
-#second {
-    border: 1px solid black;
-	height: 298px;
-    margin: 0 0 0 350px; 
-}
-a {
-    width:200px;
-    display:inline-block;
-    text-align:right;
-}
+
 body {
     background-image: url("http://freeppt.net/background/Sales_Presentation_Template.jpg");
     background-repeat: no-repeat;
 	background-size: 1600px 750px;
 	}
 	
-h1 {
-    color: gray;
-}
-.right {
-    text-align: right;
-}
+
 </style>
 </head>
 
@@ -74,7 +57,7 @@ if(isset($_POST['Login']))
 		
 		if ($p1 == trim($matches[3])){
 			
-			header('Location: http://localhost/project/MainPage.html');
+			header('Location: http://localhost/project/index.php');
 		}
 		
 		
