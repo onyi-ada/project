@@ -46,6 +46,7 @@ h1 {
 <a href = "http://localhost/project/Login.html"
 >return to login</a></font>
 
+
 <?php
 #crypt.ph
 
@@ -59,33 +60,6 @@ $password2 = $_POST['password2'];
 $p1 = crypt($password, "salt");
 $p2 = crypt($password2, "salt");
 
-if($p1 == $p2){
-	//create a link to connect mysql
-	$link = mysqli_connect("localhost","root","CulL1g@n5", "project");
-	
-	//make sure mysql actually connected without errors
-	if(mysqli_connect_errno()){
-		echo "Connection failed: ";
-		echo mysqli_connect_error();
-		exit();
-	}
-	
-	$username = mysqli_escape_string($link, $username);
-	$email = mysqli_escape_string($link, $email);
-	$password = mysqli_escape_string($link, $p1);
-	
-	$sql = "INSERT INTO 'users'  ('username', 'email', 'password') VALUES ('$username1', '$email1', '$password1')";
-	$result = mysqli_query($link, $sql);
-	//$link -> query("INSERT INTO 'users'  ('username', 'email', 'password') VALUES ('$username', '$email', '$password')");
-	
-	if($result)
-		echo 'data inserted sucessfully';
-}
-
-
-
-
-/*
 if($p1 == $p2)
 {
 	//echo "Your passwords are equivalent";
@@ -100,7 +74,40 @@ else{
 	echo "<p align=center><font size=5>(Your passwords are not equivalent.)</font> </p> ";
 }
 
+
+
+//Database code that still needs a little tweaking, but works for the most part.
+/*
+//create a link to connect mysql
+	$link = mysqli_connect("localhost","root","password", "project");
+	//mysqli_select_db($link, "users") or die("database does not exist.");
+	
+	//make sure mysql actually connected without errors
+	if(mysqli_connect_errno()){
+		echo "Connection failed: ";
+		echo mysqli_connect_error();
+		exit();
+	}
+	
+	
+
+	
+if($p1 == $p2)
+{
+
+$username1 = mysqli_escape_string($link, $username);
+	$email1 = mysqli_escape_string($link, $email);
+	$password1 = mysqli_escape_string($link, $p1);
+	
+	$sql = "INSERT INTO 'users'  ('username', 'email', 'password') VALUES ('$username1', '$email1', '$password1')";
+	$result = mysqli_query($link, $sql);
+	//$link -> query("INSERT INTO 'users'  ('username', 'email', 'password') VALUES ('$username', '$email', '$password')");
+	
+	if($result)
+		echo "data inserted sucessfully";
+}
 */
+
 ?>
 
 </body>
