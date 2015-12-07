@@ -39,7 +39,7 @@ public class Main extends Application {
 	private String chart_name;
 	//this text file writes the data that matlab needs to read
 	//it writes the filename, directory and the name that the chart needs to be saved as
-	File from = new File("file_to_open.txt");
+	File data_file = new File("file_to_open.txt");
 	FileWriter writer = null;
 	FileChooser filechooser = new FileChooser();
 	
@@ -47,7 +47,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws InterruptedException, IOException{	
 			//make sure file directories exists
 			checkDirectories();
-		
+			//set scene 
 			primaryStage.setScene(new Scene(createDesign()));
 			primaryStage.setTitle("Complex Project Manager");;
 			primaryStage.show();
@@ -59,6 +59,7 @@ public class Main extends Application {
 	}
 	
 	public Parent createDesign() throws IOException{
+		//grid pane for application
 		GridPane grid = new GridPane();
 		ImageView view = new ImageView();
 		grid.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
@@ -75,7 +76,8 @@ public class Main extends Application {
 		Button import_file = new Button("Add Excel File to Path");
 		Button close_app = new Button("Close Application");
 		hbox.getChildren().addAll(upload_btn, display_gantt, import_file, close_app);
-		//upload an excell file to calculate
+		
+		//button upload an excel file to calculate
 		upload_btn.setOnAction(event ->{
 			try {
 				selectExcelFile();
@@ -83,21 +85,24 @@ public class Main extends Application {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-
+			//retrieve the recently saved by matlab
 			Image gantt = new Image(new File(gantt_dir+chart_name).toURI().toString(),600,450,false,false);
+			//set image to view
 			view.setImage(gantt);
 
 		});
-		//display an existing gantt chart already in add
+		
+		//button to display an existing gantt chart already in the system
 		display_gantt.setOnAction(event ->{
 			filechooser.setInitialDirectory(new File(System.getProperty("user.home")));
 			File imagename = filechooser.showOpenDialog(new Stage());
 			System.out.println(imagename);
 			Image image = new Image((imagename).toURI().toString(),600,450,false,false);
+			//display image
 			view.setImage(image);
 		});
 		
-		//import file from a different directory
+		//button to import file from a different directory
 		import_file.setOnAction(event ->{
 			filechooser.setInitialDirectory(new File(System.getProperty("user.home")));
 			File original = filechooser.showOpenDialog(new Stage());
@@ -126,13 +131,12 @@ public class Main extends Application {
 				istream.close();
 				ostream.close();
 			} catch (Exception e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			
 		});
 		
-		//close application
+		//button to close application
 		close_app.setOnAction(event ->{
 			Platform.exit();
 		});
@@ -156,7 +160,7 @@ public class Main extends Application {
 			Process process;
 			process = Runtime.getRuntime().exec(command);
 			process.waitFor();
-			//clear out contents of the text file
+			//clear out contents of the text file once matlab has retrieved the information
 			new PrintWriter("file_to_open.txt").close();
 			
 		}catch(Throwable t){
@@ -164,34 +168,35 @@ public class Main extends Application {
 		}
 	}
 	
+	//allows user to select the file they wish to make calculations with
 	public void selectExcelFile() throws IOException{
 		filechooser.setInitialDirectory(new File(System.getProperty("user.home")));
 		String file = filechooser.showOpenDialog(new Stage()).getName();
 		file_path = excell_dir + file;
 		chart_name = file + "_GanttChart.png";
 		
-		//set file name to text for matlab to retreive 
 		try {
 			//if file that stores excell file names does not exists, create it
-			if(!from.exists()){
-				PrintWriter create= new PrintWriter("file_to_open.txt","UTF-8");
+			if(!data_file.exists()){
+				//this file holds saves information that matlab retrieves, it stores the
+				//excel file path, chart directory and the name to save the chart as
+				PrintWriter create = new PrintWriter(data_file,"UTF-8");
 				create.close();
 			}
 			
 			//write excell file name to text file for matlab to retrieve
-			writer = new FileWriter(from,true);
+			writer = new FileWriter(data_file,true);
 			BufferedWriter out = new BufferedWriter(writer);
 			out.write(file_path + "|" + gantt_dir + "|" + chart_name);
 			out.close();
 				
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
 	private void checkDirectories(){
-		//create new directories to stores needed files
+		//create new directories to store and organize needed files
 		File charts = new File(gantt_dir);
 		File data = new File(excell_dir);
 		if(!charts.isDirectory()){
@@ -202,3 +207,4 @@ public class Main extends Application {
 		}
 	}
 }
+
