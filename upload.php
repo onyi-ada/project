@@ -60,5 +60,6 @@ if(isset($_POST['Upload']))
 	}
 
 	//Sends the browser back to the upload page
-	header('Location:index.php?success=true');
+	header('Location:index2.php?success=true');
 }
+?>
