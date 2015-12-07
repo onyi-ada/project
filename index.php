@@ -51,29 +51,39 @@ foreach($items as $item)
 
 print <<<EOT
 <head>
-<link rel=stylesheet type="text/css" href="StyleSheet.css">
+<link rel=stylesheet type="text/css" href="StyleSheet2.css">
 <title>Project Management</title>
 $imghide
 </head>
+
 <body>
-	<h1>Project Manager</h1>
-	<p>
-		<a href="http://localhost/project/About.html">About</a>
-		<a href="Wiest_RawData.xlsx">Click to download test file</a>
-	</p>
+	<header>
+		<h1>Project Manager</h1>
+		<ul>
+			<li><a href="about.html">About Page</a></li>
+			<li><a href="Wiest_RawData.xlsx">Test File</a></li>
+		</ul>
+	</header>
  
 
-	<form enctype="multipart/form-data" method="POST" action="upload.php">
+	<form enctype="multipart/form-data" method="POST" action="upload2.php">
     
 	    <input type="file" value="ChooseFile" name="ChooseFile">
 	    
-	    <button type="submit" name="Upload" style="width: 100px; height: 40px;">Upload</button>
+	    <button type="submit" name="Upload" style="width: 100px; height: 40px;">Generate Gantt</button>
 	    
 	    <div id="wrapper">
 	    	<img src=$imgsrc class=gant>      
 	    </div>
 
 	</form>
+
+	<footer>
+		<p>
+			&copy 2015 Created by: Joy Onyerikwu (Lead), Michael Tillotson, Cullen Vaughn
+		</p>
+	</footer>
+
 </body>
 EOT;
 ?>
